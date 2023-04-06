@@ -1,6 +1,6 @@
 # Flexbox-Demo-for-INST---630
 
-A demo to explain students about how a flexbox/responsive design from Figma translates to a responsive web page. Please find the figma code here: https://www.figma.com/file/RZZ9Q4XGlarfms5zaogK4R/INST630---Flex-box-Tutorial?node-id=0-1&t=kYKICCGv42Z5SaRw-0
+A demo to explain students about how a flexbox/responsive design from Figma translates to a responsive web page. Please find the figma designs here: https://www.figma.com/file/RZZ9Q4XGlarfms5zaogK4R/INST630---Flex-box-Tutorial?node-id=0-1&t=kYKICCGv42Z5SaRw-0
 
 
 Screenshots of the app below:
