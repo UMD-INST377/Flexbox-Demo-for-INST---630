@@ -1,0 +1,359 @@
+/* Resets & Globals */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  /* Colors */
+  :root {
+    --white: #fff;
+    --light-grey: #F8F8F8;
+    --grey: #EBEBEB;
+    --dark-grey: #717171;
+    --light-blue: #1792D2;
+    --dark-blue: #143774;
+  }
+  
+  /* Utilities */
+  
+  .wrapper {
+    max-width: 960px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .flex-row, .flex-column {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .flex-column {
+    flex-direction: column;
+  }
+  
+  .wrapper-header {
+    justify-content: space-between;
+    align-items: center; 
+  }
+  
+  @media screen and (max-width: 920px) {
+    .wrapper.flex-row {
+      flex-direction: column;
+    }
+  }
+  
+  /* Typography */
+  
+  h2, h3, h4, p {
+    margin-bottom: 1em;
+  }
+  
+  
+  .main-title, .article-title {
+    font-family: 'Lora', serif;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--dark-blue);
+  }
+  
+  .main-subtitle {
+    color: var(--light-blue);
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .article-title {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+  }
+  
+  .aside-post .article-title {
+    font-size: 1.125rem;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .article-meta-info, .action-link, .aside-about-me p {
+    font-size: 0.87rem;
+  }
+  
+  .aside-block-title {
+    font-size: 1.125rem;
+    color: var(--dark-blue);
+    text-transform: uppercase;
+  }
+  
+  strong {
+    font-weight: 700;
+  }
+  
+  .aside-about-me p {
+    color: var(--dark-blue);
+  }
+  .sentence-link, .action-link {
+    color: var(--light-blue);
+  }
+  
+  .action-link {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .sentence-link:hover, .sentence-link:focus,
+  .action-link:hover, .action-link:focus {
+    color: var(--dark-blue);
+  }
+  
+  a.article-title:hover, a.article-title:focus {
+    color: var(--light-blue);
+  }
+  
+  /* Layout */
+  
+  .wrapper-main {
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  main {
+    width: 72%;
+  }
+  
+  aside {
+    width: 22%;
+  }
+  
+  .article-recent {
+    justify-content: space-between;
+  }
+  
+  .article-recent-header {
+    width: 27%;
+  }
+  
+  .article-recent-body {
+    width: 69%;
+  }
+  
+  @media screen and (max-width: 920px){
+    .article-recent {
+      flex-direction: column;
+    }
+    
+    main, 
+    aside, 
+    .article-recent-header, 
+    .article-recent-body {
+      width: 100%;
+    }
+    
+  }
+  
+  /* General Styles */
+  
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--dark-grey);
+  }
+  
+  header { 
+    padding: 4rem;
+    background-color: var(--light-grey);
+    margin-bottom: 3rem;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .main-nav li {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  
+  .main-nav li:first-of-type {
+    margin-left: 0;
+  }
+  
+  @media screen and (max-width: 920px) {
+    header {
+      text-align: center;
+    }
+    
+    .title {
+      margin-bottom: 1rem;
+    }
+    
+    .main-nav li {
+      display: block;
+      margin-left: 0;
+    }
+  }
+  
+  /* Nav links */
+  
+  .nav-link {
+    color: var(--grey-dark);
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: grey;
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform ease-in-out 350ms;
+    transition-delay: 50ms;
+  }
+  
+  .nav-link:hover.nav-link::after, 
+  .nav-link:focus.nav-link::after, 
+  .nav-link.active.nav-link::after {
+    transform: scale(1);
+    transform-origin: left;
+  }
+  
+  .article-featured, .article-recent {
+    padding: 1rem 0;
+  }
+  
+  .article-featured {
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
+  
+  .article-recent:nth-of-type(2) {
+    padding-top: 2rem;
+  }
+  
+  /* Featured article styles and flex order */
+  .article-featured {
+     border-bottom: 1px solid var(--dark-grey);
+  }
+  
+  .article-featured img {
+    order: 1;
+  }
+  
+  .article-featured .article-meta-info {
+    order: 2;
+  }
+  
+  .article-featured .article-title {
+    order: 3;
+  }
+  .article-featured p {
+    order: 4;
+  }
+  
+  .article-featured .action-link {
+    order: 5;
+  }
+  
+  /* Recent articles styles */
+  .article-recent-header img {
+    object-fit: cover;
+    height: 250px;
+   
+  }
+  
+  @media screen and (max-width: 920px) {
+    /*
+    -> Exploration of fake two column hackery, not a good idea
+    
+    .article-recent .article-title {
+    margin-top: -2.6rem;
+  }
+    
+    .article-recent .article-meta-info {
+    text-align: right;
+  }
+    */
+    .article-featured img {
+      margin-bottom: 2rem;  
+    }
+    
+    .article-recent-header img {
+      height: auto;
+    } 
+  }
+  
+  /* Aside Styles - About me block*/
+  .aside-about-me, .aside-recent-posts {
+    border: solid 20px var(--grey); 
+    margin-bottom: 4rem;
+    padding: 1rem;
+  }
+  
+  .aside-about-me img {
+    object-fit: cover;
+    height: 150px;
+  }
+  
+  .aside-post {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--dark-grey);
+  }
+  
+  .aside-post:first-of-type {
+    padding-top: 0;
+  }
+  
+  .aside-post:last-child {
+    border-bottom: none;
+  }
+  
+  @media screen and (max-width: 920px) {
+    aside {
+      margin-top: 2rem;
+    }
+    .aside-about-me img {
+      height: auto;
+    }
+  }
+  
+  /* Footer styles */
+  footer {
+    margin-top: 2rem;
+    padding: 2rem 0;
+    background-color: var(--dark-blue);
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;  
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
+  
+  
