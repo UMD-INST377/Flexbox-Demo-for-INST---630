@@ -2,7 +2,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="index.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body>
 <header>
     <div class="wrapper wrapper-header flex-row">
       <div class="title">
@@ -20,8 +22,10 @@
   </header>
   
   <div class="wrapper flex-row wrapper-main">
+
+
     <main role="main">
-      
+      <canvas id="myChart" width="400" height="400"></canvas>
        <!-- Featured article starts here-->
       <article class="article-featured flex-column">
         <h2 class="article-title">Finding simplicity in life</h2>
@@ -47,4 +51,6 @@
     <p><strong>Living the Simple life</strong></p>
     <p>Copyright 2020</p>
   </footer>
+  <script src="./script.js"></script>
+  </body>
 </html>
