@@ -1,23 +1,47 @@
-const ctx = document.getElementById('myChart');
-
-new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-    label: '# of Votes',
-    data: [12, 19, 3, 5, 2, 3],
-    borderWidth: 1
-    }]
-},
-options: {
-    scales: {
-    y: {
-        beginAtZero: true
+function generateChart(target, labels, data) {
+    const chart = new Chart(target, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+        label: '# of Votes',
+        data: data,
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
     }
-    }
+    });
+    return chart;
 }
-});
+
+async function mainEvent(evt1) {
+    const chartTarget = document.querySelector('#myChart'); // HAS to be a Canvas element
+
+    const reply = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
+    const data = await reply.json()
+    console.table(data);
+
+    const chartDataObj = data.reduce((col, item, index) => {
+        if (!col[item.category]){
+            col[item.category] = 1
+        } else {
+            col[item.category] += 1
+        }
+        return col
+    }, {})
+    
+    const chartData = Object.values(chartDataObj)
+    const chartLabels = Object.keys(chartDataObj)
+    const chartRef = generateChart(chartTarget, chartLabels, chartData);
+}
+
+document.addEventListener("DOMContentLoaded", async (event) => mainEvent(event))
 
 // const config = {
 //     type: 'bar',
